@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script src="{% static 'scripts/jquery/echarts.js' %}"></script>
+<script src="{% static 'scripts/jquery/china.js' %}"></script>
+<script>
+function randomValue() {
+    return Math.round(Math.random()*1000);
+}
+var chart = echarts.init(document.getElementById('main'));
+chart.setOption({
+		
+	  tooltip: {},
+        series: [{
+		name:'数量',
+        type: 'map',
+        map: 'china',
+		 data:[
+                {name: '北京', value: {{ data.beijing }} },
+                {name: '天津', value: {{ data.tianjing }} },
+                {name: '上海', value: {{ data.shanghai }} },
+                {name: '重庆', value: {{ data.chongq }} },
+                {name: '河北', value: {{ data.heib }} },
+                {name: '河南', value: {{ data.henan }} },
+                {name: '云南', value: {{ data.yunnan }} },
+                {name: '辽宁', value: {{ data.liaon }}},
+                {name: '黑龙江', value: {{ data.heilongj }}},
+                {name: '湖南', value: {{ data.hunan }} },
+                {name: '安徽', value: {{ data.anh }} },
+                {name: '山东', value: {{ data.shandong }} },
+                {name: '新疆', value: {{ data.xinjiang }} },
+                {name: '江苏', value: {{ data.jiangs }} },
+                {name: '浙江', value: {{ data.zhejiang }}},
+                {name: '江西', value: {{ data.jiangx }} },
+                {name: '湖北', value: {{ data.hubei }} },
+                {name: '广西', value: {{ data.guangx }} },
+                {name: '甘肃', value: {{ data.gansu }} },
+                {name: '山西', value: {{ data.shanx }} },
+                {name: '内蒙古', value: {{ data.neimenggu }} },
+                {name: '陕西', value: {{ data.shanx }} },
+                {name: '吉林', value: {{ data.jilin }} },
+                {name: '福建', value: {{ data.fujian }} },
+                {name: '贵州', value: {{ data.heilongj }} },
+                {name: '广东', value: {{ data.guangd }} },
+                {name: '青海', value: {{ data.qinghai }} },
+                {name: '西藏', value: {{ data.xizang }} },
+                {name: '四川', value: {{ data.sichuan }} },
+                {name: '宁夏', value: {{ data.ningxia }} },
+                {name: '海南', value: {{ data.hainan }} },
+                {name: '台湾', value: {{ data.taiw }} },
+                {name: '香港', value: {{ data.xianggang }}},
+                {name: '澳门', value: {{ data.aom }}}
+            ]
+    }]
+});
+</script>
+</body>
+</html>
